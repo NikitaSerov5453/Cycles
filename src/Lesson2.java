@@ -21,11 +21,12 @@ public class Lesson2 {
 
     public static void primeNumbers() {
         for (int i = 2; i < 1_000_000; i++) {
-            for (int j = 2; j <= i; j++) {
-                if (j < i & i % j == 0) {       //Корень не используется, так как при его наличии программа замедляется более чем в 2 раза
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
                     break;
                 } else if (i % j == 0) {
                     System.out.println(i);
+                    break;
                 }
             }
         }

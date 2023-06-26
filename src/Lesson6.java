@@ -21,11 +21,13 @@ public class Lesson6 {
         for (int i = 9_999_999; i <= 99_999_999 - 1; i++) {
             array(i);
             if (duplicateNumbers(result) & i % 12345 == 0) {
+                System.out.println(i);
                 counter++;
             } else {
                 result.clear();
             }
         }
+        System.out.println();
         return counter;
     }
 
@@ -39,8 +41,6 @@ public class Lesson6 {
         }
         return true;
     }
-
-
     public static void array(int number) {
         while (number > 0) {
             result.add(number % 10);

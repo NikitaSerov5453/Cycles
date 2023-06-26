@@ -19,32 +19,28 @@ public class Lesson5 {
         palindrome(scanner.nextInt());
     }
 
-    static ArrayList<Integer> result = new ArrayList<>();
-
     public static void palindrome(int scanner) {
-        boolean b = true;
-        array(scanner);
-        if (String.valueOf(scanner).length() % 2 == 0) {
-            for (int i = 0; i < result.size() / 2; i++) {
-                if (!Objects.equals(result.get(i), result.get(result.size() - 1 - i))) {
-                    b = false;
-                    System.out.println("NO");
-                    break;
-                }
-            }
-            if (b) {
+        int a;
+        int b;
+        int counter = 1;
+        for (int i = 0; i < String.valueOf(scanner).length() / 2; i++) {
+            a = scanner / (createDivider(scanner) / counter) % 10;
+            b = (scanner / counter) % 10;
+            counter *= 10;
+            if (a != b) {
+                System.out.println("NO");
+            } else {
                 System.out.println("YES");
             }
-        } else {
-            System.out.println("NO");
+            break;
         }
     }
 
-    public static void array(int number) {
-        while (number > 0) {
-            result.add(number % 10);
-            number = number / 10;
+    public static int createDivider(int a) {
+        int b = 1;
+        for (int i = 1; i < String.valueOf(a).length(); i++) {
+            b *= 10;
         }
-        Collections.reverse(result);
+        return b;
     }
 }
