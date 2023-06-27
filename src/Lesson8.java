@@ -1,13 +1,10 @@
-import java.util.Objects;
-
 public class Lesson8 {
     /**
      * Задание 8
      * Электронные часы показывают время в формате от 00:00
      * до 23:59. Написать программу, которая выведет на консоль
      * сколько раз за сутки случается так, что слева от двоеточия
-     * показывается симметричная комбинация для той, что справа от двоеточия (например, 02:20, 11:11 или 15:51).
-     * Вывести
+     * показывается симметричная комбинация для той, что справа от двоеточия (например, 02:20, 11:11 или 15:51). Вывести
      * на экран все симметричные комбинации. Вывести общее
      * число комбинаций.
      *
@@ -20,23 +17,14 @@ public class Lesson8 {
     public static void clock() {
         int counter = 0;
         for (int i = 0; i < 24; i++) {
-            if (revers(i) < 60 & (revers(i) * 10 < 60 || revers(i) * 10 > 100)) {
-                System.out.printf("%02d:%02d\n", i, revers(i));
+            for (int j = 0; j < 60; j++) {
+                if (i == revers(j) & j != 1 & j != 2 & j != 3 & j != 4 & j != 5 & j != 6 & j != 7 & j != 8 & j != 9) {
+                    System.out.printf("%02d:%02d\n", i, j);
+                    counter++;
+                }
             }
         }
-        System.out.println(counter);
-
-
-//        int counter = 0;
-//        for (int i = 0; i < 24; i++) {
-//            for (int j = 0; j < 60; j++) {
-//                if (i == revers(j) & j != 1 & j != 2 & j != 3 & j != 4 & j != 5 & j != 6 & j != 7 & j != 8 & j != 9) {
-//                    System.out.printf("%02d:%02d\n", i, j);
-//                    counter++;
-//                }
-//            }
-//        }
-//        System.out.println("Общее число комбинаций " + counter);
+        System.out.println("Общее число комбинаций " + counter);
     }
 
     public static int revers(int n) {
