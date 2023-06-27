@@ -17,11 +17,15 @@ public class Lesson8 {
     public static void clock() {
         int counter = 0;
         for (int i = 0; i < 24; i++) {
-            for (int j = 0; j < 60; j++) {
-                if (i == revers(j) & j != 1 & j != 2 & j != 3 & j != 4 & j != 5 & j != 6 & j != 7 & j != 8 & j != 9) {
-                    System.out.printf("%02d:%02d\n", i, j);
-                    counter++;
+
+            if (revers(i) < 60 & (revers(i) * 10 < 60 || revers(i) * 10 > 100)) {
+                counter++;
+                if (i < 10) {
+                    System.out.printf("%02d:%02d\n", i, revers(i) * 10);
+                } else {
+                    System.out.printf("%02d:%02d\n", i, revers(i));
                 }
+
             }
         }
         System.out.println("Общее число комбинаций " + counter);
